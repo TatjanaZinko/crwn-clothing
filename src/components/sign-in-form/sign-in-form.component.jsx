@@ -25,10 +25,7 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-            const {user} = await sighInAuthUserWithEmailAndPassword(
-                email, 
-                password
-            );  
+            await sighInAuthUserWithEmailAndPassword( email, password ); 
             resetFormFields();
         } catch(error) {
             switch(error.code) {
@@ -50,7 +47,7 @@ const SignInForm = () => {
     }
 
     const logGoogleUser = async () => {
-        const { user } = await signInWithGooglePopup();
+        await signInWithGooglePopup();
     }
 
     return(
